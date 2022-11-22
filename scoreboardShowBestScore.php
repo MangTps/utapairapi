@@ -10,12 +10,12 @@ WHERE score.modeAndLevelId ='$level' ORDER BY score.endTime) AS S WHERE S.userna
 ORDER BY S.endTime LIMIT 1";
 
 //Declare $result to send data from $sql to database ($con).
-$res = mysqli_query($con, $sql);
+$result = mysqli_query($con, $sql);
 
-if (!mysqli_num_rows($res)) {
+if (!mysqli_num_rows($result)) {
     echo ("FAILURE");
 } else {
-    while ($row = mysqli_fetch_assoc($res)) {
+    while ($row = mysqli_fetch_assoc($result)) {
         $data[] = $row;
     }
     echo json_encode($data);
