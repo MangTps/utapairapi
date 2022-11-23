@@ -4,7 +4,7 @@ require "init.php";
 $level = $_POST["LEVEL"];
 $username = $_POST["USERNAME"];
 
-$sql = "  SELECT S.row_index,S.endTime FROM (SELECT ROW_NUMBER() OVER(ORDER BY score.endTime ) AS row_index ,
+$sql = "  SELECT S.row_index,S.endTime (@row_number:=@row_number + 1) AS row_index FROM score ORDER BY endtime ,
          member.username,score.endTime FROM score INNER JOIN member ON score.userId = member.userId 
          WHERE score.modeAndLevelId ='$level' ORDER BY score.endTime ) AS S WHERE S.username = '$username'
          ORDER BY S.endTime;";
