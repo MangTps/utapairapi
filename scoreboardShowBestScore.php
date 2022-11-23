@@ -11,7 +11,8 @@ WHERE score.modeAndLevelId ='$level' ORDER BY score.endTime LIMIT 50)
 As A WHERE A.username ='$username' LIMIT 1;";
 
 //Declare $result to send data from $sql to database ($con).
-$result = mysqli_query($con, $sql);
+mysqli_query($con, $sql);
+$result = mysqli_query($con, $sql2);
 
 if (!mysqli_num_rows($result)) {
     echo ("FAILURE");
