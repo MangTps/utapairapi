@@ -5,8 +5,9 @@ $level = $_POST["LEVEL"];
 $username = $_POST["USERNAME"];
 $sql = "SET @row_number = 0;";
 $sql2 = "SELECT * FROM (SELECT member.username,score.endTime,(@row_number:=@row_number+1) 
-AS row_index FROM score INNER JOIN member ON score.userId = member.userId
- WHERE score.modeAndLevelId ='$level' ORDER BY `score`.`endTime` ASC) AS A WHERE A.username ='$username';";
+AS row_index FROM score INNER JOIN member ON score.userId = member.userId 
+WHERE score.modeAndLevelId ='$level' ORDER BY `score`.`endTime` ASC) AS A 
+WHERE A.username ='$username' ORDER BY A.row_index ASC;";
 
 //Declare $result to send data from $sql to database ($con).
 mysqli_query($con, $sql);
