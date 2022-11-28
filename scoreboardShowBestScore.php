@@ -17,7 +17,7 @@ mysqli_query($con, $sql);
 //Declare $result to send data from $sql2 to database ($con).
 $result = mysqli_query($con, $sql2);
 
-/* if response is failure */
+/* if doesn't have data */
 if (!mysqli_num_rows($result)) {
     echo ("FAILURE"); /* response failure to app */
 } 
