@@ -1,5 +1,5 @@
 <?php
-
+/* include data from init.php */ 
 require "init.php";
 $level = $_POST["LEVEL"]; /* declare variable to receive value with string key LEVEL  */
 $username = $_POST["USERNAME"]; /* declare variable to receive value with string key USERNAME  */

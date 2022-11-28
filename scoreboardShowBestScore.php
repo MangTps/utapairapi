@@ -1,5 +1,5 @@
 <?php
-
+/* include data from init.php */ 
 require "init.php";
 $level = $_POST["LEVEL"]; /* declare variable to receive value with string key LEVEL  */
 $username = $_POST["USERNAME"]; /* declare variable to receive value with string key USERNAME  */
@@ -9,8 +9,7 @@ $sql2 = "SELECT * FROM (SELECT member.username,score.endTime,(@row_number:=@row_
 As row_index FROM score INNER JOIN member ON score.userId = member.userId 
 WHERE score.modeAndLevelId ='$level' ORDER BY score.endTime LIMIT 50) 
 As A WHERE A.username ='$username' ORDER BY A.endTime LIMIT 1;"; 
-/* if user is on top 50 in $level //
-// then pass his best placement data to the app */
+/* if user is on top 50 in $level then pass his best placement data to the app */
 
 /* send $sql to database */ 
 mysqli_query($con, $sql);
