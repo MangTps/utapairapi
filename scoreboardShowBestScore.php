@@ -27,7 +27,7 @@ else
         /* collect $row as array $data */
         $data[] = $row; 
     }
-    echo json_encode($data); /* response as json format to app*/
+    echo json_encode($data); /* response as json format to app */
 }
 /* close connection */
 mysqli_close($con);
